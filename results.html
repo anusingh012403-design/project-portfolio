@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results & Discussion</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">Reverse Walking</div>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="methodology.html">Methodology</a></li>
+<li><a href="results.html">Results</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="acknowledgement.html">Acknowledgement</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="overlay">
+<h1>Results & Discussion</h1>
+<p>Comparative Gait Performance Across Walking Conditions</p>
+</div>
+</section>
+
+<section class="card">
+<h2>A. Temporal-Spatial Parameters</h2>
+<p>
+Walking speed decreased progressively from forward walking to reverse walking and was lowest during reverse walking while using a mobile phone.
+Step length was reduced, while stance duration increased under reverse and dual-task conditions.
+These changes indicate a slower and more cautious gait strategy to maintain balance.
+</p>
+</section>
+
+<section class="card">
+<h2>B. Joint Kinematics</h2>
+<p>
+Hip, knee, and ankle range of motion were reduced during reverse walking compared to forward walking.
+The reduction was greater during reverse walking while using the phone.
+This suggests restricted limb movement to improve stability during dual-task gait.
+</p>
+</section>
+
+<section class="card">
+<h2>C. EMG Analysis</h2>
+<p>
+EMG recordings showed increased gastrocnemius activation during reverse walking compared to forward walking.
+During reverse walking with mobile phone use, muscle activation increased further.
+</p>
+</section>
+
+<section class="card">
+<h2>D. Ground Reaction Force</h2>
+<p>
+Ground reaction force analysis showed smoother and lower peak loading during reverse walking.
+Participants showed more cautious loading patterns during dual-task walking.
+</p>
+</section>
+
+<section class="card">
+<h2>E. Discussion</h2>
+<p>
+Reverse walking requires greater neuromuscular control than forward walking, and the addition of a cognitive task further increases gait difficulty.
+These findings support dual-task reverse walking as an effective method for assessing balance control and gait stability.
+</p>
+</section>
+
+<section class="card">
+<h2>Walking Speed Comparison</h2>
+<canvas id="speedChart"></canvas>
+</section>
+
+<section class="card">
+<h2>EMG Activation Comparison</h2>
+<canvas id="emgChart"></canvas>
+</section>
+
+<footer>
+<p>Biomechanical Results Dashboard</p>
+</footer>
+
+<script>
+window.onload = function () {
+
+const speedCanvas = document.getElementById("speedChart");
+
+if(speedCanvas){
+new Chart(speedCanvas, {
+type: 'bar',
+data: {
+labels: ['Forward Walking','Reverse Walking','RW + Phone'],
+datasets: [{
+label: 'Speed (m/s)',
+data: [1.30,0.85,0.62],
+borderWidth: 1
+}]
+},
+options: {
+responsive:true,
+plugins:{legend:{labels:{color:'white'}}},
+scales:{
+x:{ticks:{color:'white'}},
+y:{ticks:{color:'white'}}
+}
+}
+});
+}
+
+const emgCanvas = document.getElementById("emgChart");
+
+if(emgCanvas){
+new Chart(emgCanvas, {
+type: 'line',
+data: {
+labels: ['Forward Walking','Reverse Walking','RW + Phone'],
+datasets: [{
+label: 'EMG Activation',
+data: [55,78,96],
+borderWidth:3,
+tension:0.4
+}]
+},
+options: {
+responsive:true,
+plugins:{legend:{labels:{color:'white'}}},
+scales:{
+x:{ticks:{color:'white'}},
+y:{ticks:{color:'white'}}
+}
+}
+});
+}
+
+};
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
